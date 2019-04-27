@@ -18,3 +18,6 @@ This app was created for the HTTP5203 - XML and Web Services Final Assignment.
 
 ### DeepAI API
 - to compare the graph image with the image the user draws on the canvas
+
+
+favicon from http://thecraftchop.com/entries/svg/poke-ball
