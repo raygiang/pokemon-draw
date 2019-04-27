@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700');
+
+/* 1.1. Default Overrides */
+
+html {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 16px;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #000;
+}
+
+a:hover {
+  font-weight: bold;
+  color: #080283;
+}
+
+/* 1.2. Use Anywhere Classes */
+
+.hidden {
+  position: absolute;
+  left: -100000px;
+}
+
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.page-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+
+#header {
+  background: #ffbdbd;
+  border-bottom: 8px solid #ff3334;
+  padding: 1em 0;
+}
+
+#site-name {
+  margin: auto 0;
+  flex: 1 0 0;
+  font-size: 35px;
+  padding-left: 1em;
+}
+
+#main-nav {
+  flex: 1 0 0;
+  text-align: right;
+}
+
+.menu > li {
+  display: inline-block;
+  margin-right: 3em;
+  font-size: 25px;
+}
+
+.menu > li:last-child {
+  margin-right: 1em;
+}
+
+/* Instructions and New Round Button Styling */
+
+#instructions {
+  text-align: center;
+  padding: 1em 0;
+  font-size: 18px;
+}
+
+#new-round-button {
+  display: block;
+  width: 100%;
+  border-top: 5px solid #ff3334;
+  border-bottom: 5px solid #ff3334;
+  background: #FFF;
+  font-size: 25px;
+  padding: 0.25em 0;
+  margin: 1em 0;
+}
+
+#new-round-button:hover {
+  font-weight: bold;
+  background: #ffbdbd;
+}
+
+/* Pokemon Info Area Styling */
+
+#pokemon-info > div {
+  background: #ffbdbd;
+  border-radius: 15px;
+  border: 5px solid #ff3334;
+}
+
+#pokemon-name {
+  margin: 0;
+  flex: 100%;
+  text-align: center;
+  font-size: 50px;
+}
+
+#pokemon-info img {
+  flex: 35%;
+  width: 100%;
+  height: 100%;
+}
+
+#pokemon-description {
+  margin: auto 0;
+  font-size: 20px;
+  flex: 65%;
+}
+
+/* Pokemon Drawing Area Styling */
+
+#drawing-area h2 {
+  flex: 100%;
+  text-align: center;
+}
+
+#graph-area, #canvas-area {
+  flex: 50%;
+  text-align: center;
+}
+
+#drawing-canvas {
+  background: white;
+  border: 1px solid #000;
+}
+
+#clear-canvas, #compare-button {
+  flex: 45%;
+  border: 5px solid #ff3334;
+  background: #FFF;
+  font-size: 20px;
+  padding: 0.5em;
+  margin: 1em 2.5%;
+}
+
+#clear-canvas:hover, #compare-button:hover {
+  background: #ffbdbd;
+}
+
+/* Results Area Styling */
+
+#results-area {
+  margin: 1em 0;
+  text-align: center;
+}
+
+#general-results {
+  flex: 100%;
+}
+
+#drawn-image, #high-score-image {
+  flex: 50%;
+}
+
+#try-again {
+  flex: 100%;
+  border: 5px solid #ff3334;
+  background: #FFF;
+  font-size: 20px;
+  padding: 0.5em;
+  margin-top: 1em;
+}
+
+#try-again:hover {
+  background: #ffbdbd;
+}
+
+/* Footer Styling */
+
+#footer {
+  background: #ffbdbd;
+  padding: 0.5em 1em;
+  border-top: 8px solid #ff3334;
+  text-align: right;
+}
+
+@media all and (max-width:1068px) {
+  .menu > li {
+    width: 100%;
+    padding-right: 1em;
+  }
+}

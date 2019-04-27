@@ -66,7 +66,6 @@ let compareScores = (res, pokeNum, dist, image) => {
                 });
 
                 fs.writeFile(`high-scores/${pokeNum}.png`, image, {encoding: 'base64'}, async (err) => {
-                    // console.log(fs.readFileSync(`high-scores/${pokeNum}.png`, { encoding: 'base64' }));
                     imagePath = fs.readFileSync(`high-scores/${pokeNum}.png`, { encoding: 'base64' });
                     res.send({
                         result: 'Congratulations, You have the high score!',
@@ -104,6 +103,7 @@ process.on('SIGINT', function() {
     client.close();
 });
 
+// for hosting on heroku
 // https://medium.freecodecamp.org/how-to-make-create-react-app-work-with-a-node-backend-api-7c5c48acb1b0
 if (process.env.NODE_ENV === 'production') {
     // Serve any static files
