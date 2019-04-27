@@ -9,7 +9,7 @@ const fs = require('fs');
 const deepai = require('deepai');
 deepai.setApiKey(process.env.DEEPAI_KEY);
 
-// Mongo Atlas
+// Mongo Atlas Connection
 const MongoClient = require('mongodb').MongoClient;
 const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@testcluster-t9ymi.mongodb.net/test?retryWrites=true`;
 const client = new MongoClient(uri, { useNewUrlParser: true });
@@ -21,10 +21,12 @@ const port = process.env.PORT || 5000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Connect to the pokemon scores database
 client.connect(err => {
     collection = client.db("pokemonscores").collection("scores");
 });
 
+// 
 let compareScores = (res, pokeNum, dist, image) => {
     let result;
     let highScore;
@@ -33,7 +35,7 @@ let compareScores = (res, pokeNum, dist, image) => {
     collection.findOne({ pokemonID: pokeNum })
         .then(result => {
             if(result) {
-                // New score, Update Database Entry and Overwrite saved Image
+                // New high score, Update Database Entry and Overwrite saved Image
                 if(dist < result.score) {
                     collection.updateOne({ pokemonID: pokeNum },
                         { $set: { score: dist } }, (err, result) => {
@@ -49,6 +51,7 @@ let compareScores = (res, pokeNum, dist, image) => {
                         });
                     });
                 }
+                // Did not beat the high score
                 else {
                     imagePath = fs.readFileSync(`high-scores/${pokeNum}.png`, { encoding: 'base64' });
                     res.send({
@@ -59,6 +62,7 @@ let compareScores = (res, pokeNum, dist, image) => {
                     });
                 }
             }
+            // New score, add database entry and save the image
             else {
                 let newScore = { pokemonID: pokeNum, score: dist };
                 collection.insertOne(newScore, (err, result) => {
@@ -81,6 +85,7 @@ let compareScores = (res, pokeNum, dist, image) => {
         });
 };
 
+// Runs when the user submits a drawn image, uses DeepAI to compare the two images
 app.post('/saveImage', async (req, res) => {
     let base64Image = req.body.image;
 

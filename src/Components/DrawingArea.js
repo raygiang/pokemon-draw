@@ -47,8 +47,7 @@ class DrawingArea extends Component {
   };
 
   /* Draw a line on the canvas
-     Parameters: context: context of the canvas
-                 startX: starting x position of the line
+     Parameters: startX: starting x position of the line
                  startY: starting y position of the line
                  endX: ending x position of the line
                  endY: ending y position of the line
@@ -64,6 +63,7 @@ class DrawingArea extends Component {
     this.drawingContext.closePath();
   };
 
+  // Function that clears the canvas
   clearDrawingArea = () => {
     this.drawingContext.clearRect(0, 0, this.drawingCanvas.width, this.drawingCanvas.height);
   };
@@ -89,6 +89,8 @@ class DrawingArea extends Component {
     return result;
   };
 
+  // Save the image currently drawn on the canvas and run saveAndCompareDrawing
+  // method, set the results in the parent component
   compareDrawing = () => {
     this.drawingURL = this.drawingCanvas.toDataURL('image/png');
     let modifiedURL = this.drawingURL.replace('data:image/png;base64,', '');
@@ -121,7 +123,7 @@ class DrawingArea extends Component {
       this.drawingCanvas.height = this.props.pokeGraph.height;
     }
 
-    // Drawing Area: Pokemon Graph, Canvas, Compare Button
+    // Drawing Area: Pokemon Graph, Canvas, Compare Button, Clear Button
     return (
       <div id="drawing-area" className="page-wrapper flex-container">
         <h2>Drawing Challenge</h2>

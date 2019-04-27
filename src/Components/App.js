@@ -26,8 +26,6 @@ class App extends Component {
 
     // Number of Pokemon
     this.pokeCount = 802;
-
-    this.somethingDrawn = false;
   }
 
   // Get a random pokemon from PokeAPI
@@ -35,7 +33,7 @@ class App extends Component {
     let pokedexNum = Math.floor(Math.random() * (this.pokeCount - 1)) + 1;
     let pokeApiUrl = 'https://pokeapi.co/api/v2/';
 
-    // Get the name and sprite of the random pokemon
+    // Get the id, name, and sprite of the random pokemon
     axios.get(pokeApiUrl + `pokemon/${pokedexNum}`)
       .then(response => {
         this.setState({
@@ -73,6 +71,7 @@ class App extends Component {
       });
   };
 
+  // Displays the drawing canvas again so the user can submit another drawing
   tryAgain = () => {
     const drawingArea = document.getElementById("drawing-area");
     const resultsDiv = document.getElementById("results");
@@ -84,6 +83,7 @@ class App extends Component {
     });
   };
 
+  // Randomly generates another pokemon
   newPokemon = () => {
     this.setState({
       pokemonNumber: null,
@@ -96,6 +96,7 @@ class App extends Component {
     this.tryAgain();
   };
 
+  // Set the result states with the parameters given
   setResults = (drawnImage, compareResult, dist, highScore, highScoreImage) => {
     this.setState({
       drawnImage: drawnImage, 

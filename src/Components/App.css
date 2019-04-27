@@ -1,6 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,700');
 
-/* 1.1. Default Overrides */
+/************************************************
+ * TABLE OF CONTENTS
+ * =================
+ * 1. Default Overrides
+ * 2. Use Anywhere Classes
+ * 3. Header Styling
+ * 4. Instructions and New Round Button Styling
+ * 5. Pokemon Info Area Styling
+ * 6. Pokemon Drawing Area Styling
+ * 7. Results Area Styling
+ * 8. Footer Styling
+ ***********************************************/
+
+/* 1. Default Overrides */
 
 html {
   box-sizing: border-box;
@@ -27,7 +40,7 @@ a:hover {
   color: #080283;
 }
 
-/* 1.2. Use Anywhere Classes */
+/* 2. Use Anywhere Classes */
 
 .hidden {
   position: absolute;
@@ -44,7 +57,7 @@ a:hover {
   margin: 0 auto;
 }
 
-/* Header */
+/* 3. Header Styling */
 
 #header {
   background: #ffbdbd;
@@ -74,7 +87,7 @@ a:hover {
   margin-right: 1em;
 }
 
-/* Instructions and New Round Button Styling */
+/* 4. Instructions and New Round Button Styling */
 
 #instructions {
   text-align: center;
@@ -98,7 +111,7 @@ a:hover {
   background: #ffbdbd;
 }
 
-/* Pokemon Info Area Styling */
+/* 5. Pokemon Info Area Styling */
 
 #pokemon-info > div {
   background: #ffbdbd;
@@ -125,7 +138,7 @@ a:hover {
   flex: 65%;
 }
 
-/* Pokemon Drawing Area Styling */
+/* 6. Pokemon Drawing Area Styling */
 
 #drawing-area h2 {
   flex: 100%;
@@ -155,7 +168,7 @@ a:hover {
   background: #ffbdbd;
 }
 
-/* Results Area Styling */
+/* 7. Results Area Styling */
 
 #results-area {
   margin: 1em 0;
@@ -183,7 +196,7 @@ a:hover {
   background: #ffbdbd;
 }
 
-/* Footer Styling */
+/* 8. Footer Styling */
 
 #footer {
   background: #ffbdbd;
